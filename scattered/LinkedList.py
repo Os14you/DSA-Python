@@ -197,7 +197,7 @@ def test_linked_list():
     ll.delete(1)
     assert ll.get(0) == 2
 
-    print("All tests passed!")
+    print("All tests passed [Linked->List]! :)")
 
 if __name__ == "__main__":
     test_linked_list()
