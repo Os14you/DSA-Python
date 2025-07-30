@@ -172,6 +172,10 @@ class LinkedList(Generic[T]):
         
         # Use the iterator to build a string representation
         return f"LinkedList({ ' -> '.join(map(str, self)) })"
+    
+    def __getitem__(self, index: int) -> T:
+        """Allows for indexing into the list (e.g., list[index])."""
+        return self.get(index)
 
 def test_linked_list():
     ll = LinkedList()
