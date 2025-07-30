@@ -176,6 +176,35 @@ class LinkedList(Generic[T]):
     def __getitem__(self, index: int) -> T:
         """Allows for indexing into the list (e.g., list[index])."""
         return self.get(index)
+    
+    def __setitem__(self, index: int, value: T) -> None:
+        """Allows for setting values in the list (e.g., list[index] = value)."""
+        if index < 0 or index >= self.__len:
+            raise IndexError("Index out of range")
+
+        current = self.head
+        for _ in range(index):
+            assert current is not None
+            current = current.next
+
+        assert current is not None, "Current should not be None if index is valid"
+        current.data = value
+    
+    def __delitem__(self, index: int) -> None:
+        """Allows for deleting items from the list (e.g., del list[index])."""
+        self.delete(index)
+    
+    def __str__(self) -> str:
+        """Provides a user-friendly string representation of the linked list."""
+        return f"LinkedList({ ' -> '.join(map(str, self)) })"
+
+    def __contains__(self, value: T) -> bool:
+        """Allows for checking if a value is in the list (e.g., value in list)."""
+        for item in self:
+            if item == value:
+                return True
+        return False
+    
 
 def test_linked_list():
     ll = LinkedList()
@@ -200,6 +229,18 @@ def test_linked_list():
 
     ll.delete(1)
     assert ll.get(0) == 2
+
+    length = len(ll)
+    assert length == 1
+
+    assert 2 in ll
+    assert 3 not in ll
+
+    ll[0] = 5
+    assert ll.get(0) == 5
+
+    del ll[0]
+    assert len(ll) == 0
 
     print("All tests passed [Linked->List]! :)")
 
