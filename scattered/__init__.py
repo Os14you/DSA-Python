@@ -1,6 +1,7 @@
 from .LinkedList import LinkedList, test_linked_list
 from .Stack import Stack, test_stack
 from .Queue import Queue, test_queue
+from .BinaryTree import BinaryTree, test_binary_tree
 
 __all__ = ["LinkedList", "Stack", "Queue"]
 __version__ = "0.3.1"
