@@ -1,15 +1,14 @@
 from .LinkedList import LinkedList, test_linked_list
-from .Stack import Stack, test_stack
-from .Queue import Queue, test_queue
 from .BinaryTree import BinaryTree, test_binary_tree
+from .BinarySearchTree import BinarySearchTree, test_BST
 
-__all__ = ["LinkedList", "Stack", "Queue"]
-__version__ = "0.3.1"
+__all__ = ["LinkedList", "BinaryTree", "BinarySearchTree"]
+__version__ = "0.4.1"
 
 def main():
     test_linked_list()
-    test_stack()
-    test_queue()
+    test_binary_tree()
+    test_BST()
 
 if __name__ == "__main__":
     print(f"Scattered [v{__version__}]")
