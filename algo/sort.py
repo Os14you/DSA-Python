@@ -145,3 +145,39 @@ def quickSort(lst: list, start: int, end: int) -> None:
     pivot = partition(lst, start, end)
     quickSort(lst, start, pivot-1)
     quickSort(lst, pivot+1, end)
+
+def countSort(lst: list, MAX_NUM: int) -> None:
+    """
+    Sorts a list of non-negative integers in-place using the counting sort algorithm.
+
+    This algorithm is efficient when the range of input data (k) is not
+    significantly larger than the number of elements (N).
+
+    Args:
+        lst (List[int]): A list of non-negative integers to be sorted.
+        max_value (int): The maximum possible value in the list.
+
+    Raises:
+        ValueError: If the list contains negative numbers.
+
+    Notes:
+        - Time Complexity: O(N + k), where N is the number of elements
+          and k is the `max_value`.
+        - Space Complexity: O(k) to store the count of elements.
+    """
+    if not all(isinstance(x, int) and x >= 0 for x in lst):
+        raise ValueError("All elements in the list must be non-negative integers.")
+    
+    count = [0] * MAX_NUM
+
+    for i in lst:
+        count[i] += 1
+
+    j = 0
+    for i in range(len(count)):
+        repeats = count[i]
+        while repeats > 0:
+            lst[j] = i
+            j+=1
+            repeats -= 1
+            
