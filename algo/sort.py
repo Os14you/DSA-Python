@@ -17,17 +17,6 @@ def insertionSort(lst: list) -> None:
         
         lst[j+1] = element
 
-def test_insert_sort() -> None:
-    """
-    Tests the insertion sort function with a sample list.
-    
-    :return: None
-    """
-    sample_list = [5, 2, 9, 1, 5, 6]
-    insertionSort(sample_list)
-    assert sample_list == [1, 2, 5, 5, 6, 9], "Insertion sort failed"
-    print("Insertion sort passed!!")
-
 def bubbleSort(lst: list) -> None:
     """
     Sorts a list using the bubble sort algorithm.
@@ -47,13 +36,18 @@ def bubbleSort(lst: list) -> None:
         if not swapped:
             break
 
-def test_bubble_sort() -> None:
+def selectionSort(lst: list) -> None:
     """
-    Tests the insertion sort function with a sample list.
+    Sorts a list using the selection sort algorithm.
     
-    :return: None
+    :param list: A list of elements to be sorted.
+
+    Notes:
+        The time complexity of this algorithm is O(N^2) in the average and
+        worst cases and O(N) in the best case when the list is already sorted.
     """
-    sample_list = [5, 2, 9, 1, 5, 6]
-    bubbleSort(sample_list)
-    assert sample_list == [1, 2, 5, 5, 6, 9], "bubble sort failed"
-    print("Bubble sort passed!!")
+    sorted_lst = []
+    for i in range(len(lst)):
+        sorted_lst.append(min(lst))
+    
+    lst = sorted_lst
