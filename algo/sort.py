@@ -53,3 +53,42 @@ def selectionSort(lst: list) -> None:
                 min_idx = j
         
         (lst[i], lst[min_idx]) = (lst[min_idx], lst[i])
+    
+def mergeSort(lst: list) -> list:
+    """
+    Sorts a list using the merge sort algorithm.
+
+    :param list: A list of elements to be sorted.
+    :returns list: the sorted list.
+
+    Notes:
+        The time complexity of this algorithm is O(n * log(n)) in the average,
+        worst and best cases.
+    """
+
+    if len(lst) < 2:
+        return lst[:]
+    
+    middle = len(lst) // 2
+    left  = mergeSort(lst[:middle])
+    right = mergeSort(lst[middle:])
+
+    i, j = 0, 0
+    merged = []
+    while i < len(left) and j < len(right):
+        if left[i] < right[j]:
+            merged.append(left[i])
+            i+=1
+        else:
+            merged.append(right[j])
+            j+=1
+    
+    while i < len(left):
+        merged.append(left[i])
+        i+=1
+    
+    while j < len(right):
+        merged.append(right[j])
+        j+=1
+    
+    return merged
