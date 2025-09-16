@@ -92,3 +92,25 @@ def mergeSort(lst: list) -> list:
         j+=1
     
     return merged
+
+def quickSort(lst: list, start: int, end: int) -> None:
+    
+    def partition(lst: list, start: int, end: int) -> int:
+        pivot = lst[end]
+        pivotIdx = start
+
+        for i in range(start, end):
+            if lst[pivotIdx] <= pivot:
+                lst[i], lst[pivotIdx] = lst[pivotIdx], lst[i]
+                pivotIdx+=1
+        
+        lst[pivotIdx], lst[end] = lst[end], lst[pivotIdx]
+        return pivotIdx
+
+    if start >= end:
+        return
+    
+    pivot = partition(lst, start, end)
+    quickSort(lst, start, pivot-1)
+    quickSort(lst, pivot+1, end)
+
