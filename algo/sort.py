@@ -43,8 +43,8 @@ def selectionSort(lst: list) -> None:
     :param list: A list of elements to be sorted.
 
     Notes:
-        The time complexity of this algorithm is O(N^2) in the average and
-        worst cases and O(N) in the best case when the list is already sorted.
+        The time complexity of this algorithm is O(N^2) in the average,
+        worst and best cases.
     """
     sorted_lst = []
     for i in range(len(lst)):
