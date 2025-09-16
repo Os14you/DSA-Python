@@ -46,9 +46,10 @@ def selectionSort(lst: list) -> None:
         The time complexity of this algorithm is O(N^2) in the average,
         worst and best cases.
     """
-    sorted_lst = []
     for i in range(len(lst)):
-        sorted_lst.append(min(lst))
-        lst.remove(min(lst))
-    
-    lst = sorted_lst
+        min_idx = i
+        for j in range(i+1, len(lst)):
+            if lst[j] < lst[min_idx]:
+                min_idx = j
+        
+        (lst[i], lst[min_idx]) = (lst[min_idx], lst[i])
