@@ -1,12 +1,4 @@
-from .sort import insertionSort, test_insert_sort
+from .sort import *
 
-__all__ = []
-__version__ = "0.1.0"
-
-def main():
-    print(f"Algo [v{__version__}]")
-    
-    test_insert_sort()
-
-if __name__ == "__main__":
-    main()
+__all__ = ["test_insert_sort", "insertionSort", "test_bubble_sort", "bubbleSort"]
+__version__ = "0.2.0"
