@@ -1,12 +1,13 @@
 def insertionSort(lst: list) -> None:
     """
-    Sorts a list using the insertion sort algorithm.
-    
-    :param list: A list of elements to be sorted.
+    Sorts a list in-place using the insertion sort algorithm.
+
+    Args:
+        lst (List[Any]): A list of elements to be sorted.
 
     Notes:
-        The time complexity of this algorithm is O(N^2) in the average and
-        worst cases and O(N) in the best case when the list is already sorted.
+        The time complexity is O(N^2) for average/worst cases and O(N)
+        for the best case (already sorted list).
     """
     for i in range(len(lst)):
         element, j = lst[i], i - 1
@@ -19,13 +20,14 @@ def insertionSort(lst: list) -> None:
 
 def bubbleSort(lst: list) -> None:
     """
-    Sorts a list using the bubble sort algorithm.
-    
-    :param list: A list of elements to be sorted.
+    Sorts a list in-place using the bubble sort algorithm.
+
+    Args:
+        lst (List[Any]): A list of elements to be sorted.
 
     Notes:
-        The time complexity of this algorithm is O(N^2) in the average and
-        worst cases and O(N) in the best case when the list is already sorted.
+        The time complexity is O(N^2) for average/worst cases and O(N)
+        for the best case (already sorted list) due to the swap check.
     """
     for amount_shifts in range(len(lst)):
         swapped = False
@@ -38,13 +40,14 @@ def bubbleSort(lst: list) -> None:
 
 def selectionSort(lst: list) -> None:
     """
-    Sorts a list using the selection sort algorithm.
-    
-    :param list: A list of elements to be sorted.
+    Sorts a list in-place using the selection sort algorithm.
+
+    Args:
+        lst (List[Any]): A list of elements to be sorted.
 
     Notes:
-        The time complexity of this algorithm is O(N^2) in the average,
-        worst and best cases.
+        The time complexity is O(N^2) in all cases (average, worst, and best)
+        because it always performs the same number of comparisons.
     """
     for i in range(len(lst)):
         min_idx = i
@@ -56,14 +59,17 @@ def selectionSort(lst: list) -> None:
     
 def mergeSort(lst: list) -> list:
     """
-    Sorts a list using the merge sort algorithm.
+    Sorts a list using the merge sort algorithm. This is not an in-place sort.
 
-    :param list: A list of elements to be sorted.
-    :returns list: the sorted list.
+    Args:
+        lst (List[Any]): A list of elements to be sorted.
+
+    Returns:
+        List[Any]: A new list containing the sorted elements.
 
     Notes:
-        The time complexity of this algorithm is O(n * log(n)) in the average,
-        worst and best cases.
+        The time complexity is O(N * log(N)) in all cases.
+        The space complexity is O(N) due to the need for temporary lists.
     """
 
     if len(lst) < 2:
@@ -94,17 +100,43 @@ def mergeSort(lst: list) -> list:
     return merged
 
 def quickSort(lst: list, start: int, end: int) -> None:
-    
-    def partition(lst: list, start: int, end: int) -> int:
-        pivot = lst[end]
-        pivotIdx = start
+    """
+    Sorts a portion of a list in-place using the quick sort algorithm.
 
-        for i in range(start, end):
+    Args:
+        lst (List[Any]): The list of elements to be sorted.
+        start (int): The starting index of the portion to sort.
+        end (int): The ending index of the portion to sort.
+
+    Notes:
+        The time complexity is O(N * log(N)) on average and O(N^2) in the
+        worst case (e.g., an already sorted list with a bad pivot choice).
+    """
+
+    def partition(lst: list, low: int, high: int) -> int:
+        """
+        Partitions the list using the Lomuto partition scheme.
+        
+        It rearranges elements such that elements smaller than the pivot
+        are on its left, and elements greater are on its right.
+
+        Args:
+            sub_lst (List[Any]): The list being partitioned.
+            low (int): The starting index of the partition.
+            high (int): The ending index (and pivot element index).
+
+        Returns:
+            int: The final index of the pivot element.
+        """
+        pivot = lst[high]
+        pivotIdx = low
+
+        for i in range(low, high):
             if lst[pivotIdx] <= pivot:
                 lst[i], lst[pivotIdx] = lst[pivotIdx], lst[i]
                 pivotIdx+=1
         
-        lst[pivotIdx], lst[end] = lst[end], lst[pivotIdx]
+        lst[pivotIdx], lst[low] = lst[low], lst[pivotIdx]
         return pivotIdx
 
     if start >= end:
@@ -113,4 +145,3 @@ def quickSort(lst: list, start: int, end: int) -> None:
     pivot = partition(lst, start, end)
     quickSort(lst, start, pivot-1)
     quickSort(lst, pivot+1, end)
-
