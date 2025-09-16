@@ -3,6 +3,10 @@ def insertionSort(lst: list) -> None:
     Sorts a list using the insertion sort algorithm.
     
     :param list: A list of elements to be sorted.
+
+    Notes:
+        The time complexity of this algorithm is O(N^2) in the average and
+        worst cases and O(N) in the best case when the list is already sorted.
     """
     for i in range(len(lst)):
         element, j = lst[i], i - 1
@@ -29,6 +33,10 @@ def bubbleSort(lst: list) -> None:
     Sorts a list using the bubble sort algorithm.
     
     :param list: A list of elements to be sorted.
+
+    Notes:
+        The time complexity of this algorithm is O(N^2) in the average and
+        worst cases and O(N) in the best case when the list is already sorted.
     """
     for amount_shifts in range(len(lst)):
         swapped = False
