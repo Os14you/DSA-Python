@@ -49,5 +49,6 @@ def selectionSort(lst: list) -> None:
     sorted_lst = []
     for i in range(len(lst)):
         sorted_lst.append(min(lst))
+        lst.remove(min(lst))
     
     lst = sorted_lst
