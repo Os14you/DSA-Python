@@ -1,4 +1,11 @@
 from .sort import *
 
-__all__ = ["test_insert_sort", "insertionSort", "test_bubble_sort", "bubbleSort"]
-__version__ = "0.2.0"
+__all__ = [
+    "insertionSort", 
+    "bubbleSort",
+    "quickSort",
+    "countSort",
+    "mergeSort",
+    "selectionSort"
+]
+__version__ = "1.0.0"
