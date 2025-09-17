@@ -1,4 +1,6 @@
-def insertionSort(lst: list) -> None:
+from typing import List, Any
+
+def insertionSort(lst: List[Any]) -> None:
     """
     Sorts a list in-place using the insertion sort algorithm.
 
@@ -18,7 +20,7 @@ def insertionSort(lst: list) -> None:
         
         lst[j+1] = element
 
-def bubbleSort(lst: list) -> None:
+def bubbleSort(lst: List[Any]) -> None:
     """
     Sorts a list in-place using the bubble sort algorithm.
 
@@ -38,7 +40,7 @@ def bubbleSort(lst: list) -> None:
         if not swapped:
             break
 
-def selectionSort(lst: list) -> None:
+def selectionSort(lst: List[Any]) -> None:
     """
     Sorts a list in-place using the selection sort algorithm.
 
@@ -57,7 +59,7 @@ def selectionSort(lst: list) -> None:
         
         (lst[i], lst[min_idx]) = (lst[min_idx], lst[i])
     
-def mergeSort(lst: list) -> list:
+def mergeSort(lst: List[Any]) -> List[Any]:
     """
     Sorts a list using the merge sort algorithm. This is not an in-place sort.
 
@@ -99,7 +101,7 @@ def mergeSort(lst: list) -> list:
     
     return merged
 
-def quickSort(lst: list, start: int, end: int) -> None:
+def quickSort(lst: List[Any], start: int, end: int) -> None:
     """
     Sorts a portion of a list in-place using the quick sort algorithm.
 
@@ -113,7 +115,7 @@ def quickSort(lst: list, start: int, end: int) -> None:
         worst case (e.g., an already sorted list with a bad pivot choice).
     """
 
-    def partition(lst: list, low: int, high: int) -> int:
+    def partition(lst: List[Any], low: int, high: int) -> int:
         """
         Partitions the list using the Lomuto partition scheme.
         
@@ -146,7 +148,7 @@ def quickSort(lst: list, start: int, end: int) -> None:
     quickSort(lst, start, pivot-1)
     quickSort(lst, pivot+1, end)
 
-def countSort(lst: list, MAX_NUM: int) -> None:
+def countSort(lst: List[Any], MAX_NUM: int) -> None:
     """
     Sorts a list of non-negative integers in-place using the counting sort algorithm.
 
