@@ -131,14 +131,14 @@ def quickSort(lst: List[Any], start: int, end: int) -> None:
             int: The final index of the pivot element.
         """
         pivot = lst[high]
-        pivotIdx = low
+        pivotIdx = low - 1
 
         for i in range(low, high):
-            if lst[pivotIdx] <= pivot:
-                lst[i], lst[pivotIdx] = lst[pivotIdx], lst[i]
+            if lst[i] <= pivot:
                 pivotIdx+=1
+                lst[i], lst[pivotIdx] = lst[pivotIdx], lst[i]
         
-        lst[pivotIdx], lst[low] = lst[low], lst[pivotIdx]
+        lst[pivotIdx], lst[high] = lst[high], lst[pivotIdx]
         return pivotIdx
 
     if start >= end:
