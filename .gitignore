@@ -9,3 +9,6 @@ __pycache__/
 
 # Ignore files
 ps.py
+
+# Ignore vscode hidden folder
+.vscode
