@@ -11,7 +11,7 @@ def insertionSort(lst: List[Any]) -> None:
         The time complexity is O(N^2) for average/worst cases and O(N)
         for the best case (already sorted list).
     """
-    for i in range(len(lst)):
+    for i in range(1, len(lst)):
         element, j = lst[i], i - 1
 
         while j >= 0 and lst[j] > element:
