@@ -168,7 +168,7 @@ def countSort(lst: list, MAX_NUM: int) -> None:
     if not all(isinstance(x, int) and x >= 0 for x in lst):
         raise ValueError("All elements in the list must be non-negative integers.")
     
-    count = [0] * MAX_NUM
+    count = [0] * (MAX_NUM+1)
 
     for i in lst:
         count[i] += 1
